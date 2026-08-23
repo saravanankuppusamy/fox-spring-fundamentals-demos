@@ -38,14 +38,14 @@ java -version
 ### Maven path
 
 ```bash
-mvn clean test
+mvn clean compile
 mvn -q exec:java -Dexec.mainClass=com.foxinsurance.training.lesson1.Lesson1App
 ```
 
 ### Gradle path
 
 ```bash
-gradle clean test
+gradle clean build -x test
 gradle run -PmainClass=com.foxinsurance.training.lesson1.Lesson1App
 ```
 
