@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.foxinsurance.training'
+version = '1.0.0'
+
+repositories { mavenCentral() }
+
+ext {
+    springVersion = '7.0.8'
+    hibernateVersion = '7.4.5.Final'
+    junitVersion = '5.13.4'
+    mockitoVersion = '5.18.0'
+    h2Version = '2.3.232'
+}
+
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(21) }
+}
+
+dependencies {
+    implementation "org.springframework:spring-context:${springVersion}"
+    implementation "org.springframework:spring-aop:${springVersion}"
+    implementation "org.springframework:spring-jdbc:${springVersion}"
+    implementation "org.springframework:spring-orm:${springVersion}"
+    implementation 'org.aspectj:aspectjweaver:1.9.22.1'
+    implementation "com.h2database:h2:${h2Version}"
+    implementation "org.hibernate.orm:hibernate-core:${hibernateVersion}"
+    implementation 'jakarta.annotation:jakarta.annotation-api:3.0.0'
+    implementation 'jakarta.inject:jakarta.inject-api:2.0.1'
+
+    testImplementation "org.springframework:spring-test:${springVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
+    testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
+}
+
+test { useJUnitPlatform() }
+
+application {
+    mainClass = project.findProperty('mainClass') ?: 'com.foxinsurance.training.LessonLauncher'
+}
+
+// Example: gradle run -PmainClass=com.foxinsurance.training.lesson1.Lesson1App
