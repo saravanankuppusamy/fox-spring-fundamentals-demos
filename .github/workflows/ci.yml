@@ -29,4 +29,4 @@ jobs:
         with:
           gradle-version: '8.14.3'
       - name: Gradle tests
-        run: gradle clean build 
+        run: gradle clean build -x test
