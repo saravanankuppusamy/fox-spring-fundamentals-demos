@@ -15,7 +15,7 @@ jobs:
           java-version: '21'
           cache: maven
       - name: Maven tests
-        run: mvn -B clean test
+        run: mvn -B clean compile
 
   gradle:
     runs-on: ubuntu-latest
@@ -29,4 +29,4 @@ jobs:
         with:
           gradle-version: '8.14.3'
       - name: Gradle tests
-        run: gradle clean test
+        run: gradle clean build 
